@@ -1,0 +1,7 @@
+%ul
+  - @results.each do |result|
+    - title = result['message'] ? result['message'] : result['story']
+    - if title
+      %li
+        = title
+        = "(#{pluralize(result['comments']['count'],'comment')})"
