@@ -3,8 +3,13 @@ class FacebookUsersController < ApplicationController
   end
 
   def show
-    @graph = get_graph
-    @results = @graph.get_connections(params[:id],'posts')
+    #@graph = get_graph
+    #@results = @graph.get_connections(params[:id],'posts')
+    @facebook_user = FacebookUser.find_by_username(params[:id])
+    if @facebook_user.nil?
+      flash[:error] = 'We were unable to find a user by the name of "' + params[:id] + '"'
+      redirect_to facebook_users_path
+    end
   end
 
   def search
