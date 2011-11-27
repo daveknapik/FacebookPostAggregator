@@ -4,4 +4,4 @@
     - if title
       %li
         = title
-        = "(#{pluralize(result['comments']['count'],'comment')})"
+        = "#{pluralize(result['comments']['count'],'comment')}"

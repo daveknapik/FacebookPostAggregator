@@ -11,13 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111126165751) do
+ActiveRecord::Schema.define(:version => 20111126221802) do
 
   create_table "facebook_users", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "fb_id",      :limit => 8
+    t.string   "username"
+    t.string   "link"
   end
 
   create_table "posts", :force => true do |t|
