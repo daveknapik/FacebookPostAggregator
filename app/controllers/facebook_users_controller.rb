@@ -15,10 +15,16 @@ class FacebookUsersController < ApplicationController
 
       if user_in_database
         @facebook_user = user_in_database
+        #new_posts = @graph.get_connections(@facebook_user.fb_id,'posts', :since => @facebook_user.posts.first.created_at.to_i)
+        #get posts since last import and update posts table with these posts
       else
         @facebook_user = FacebookUser.new(:name => user_from_facebook_api['name'], 
-                                          :fb_id => user_from_facebook_api['id'])
+                                          :fb_id => user_from_facebook_api['id'],
+                                          :username => user_from_facebook_api['username'],
+                                          :link => user_from_facebook_api['link'])
         @facebook_user.save
+
+        #get posts and save them
       end
     else
       flash[:error] = "You must provide a search term"
