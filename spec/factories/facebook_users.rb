@@ -2,6 +2,9 @@
 
 FactoryGirl.define do
   factory :facebook_user do
-    fb_id ""
+    fb_id "528995148"
+    name "Dave Knapik"
+    username "daveknapik"
+    link "http://www.facebook.com/daveknapik"
   end
 end
