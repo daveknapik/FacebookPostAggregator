@@ -21,9 +21,14 @@ class FacebookUsersController < ApplicationController
 
         #get posts and save them
       end
-    rescue
-      flash[:error] = 'We were unable to find a user by the name of "' + params[:id] + '"'
-      redirect_to facebook_users_path
+    rescue Koala::Facebook::APIError => e
+      if e.message.include? "expired"
+        flash[:error] = 'Your session had expired. Please try your last search again now.'
+        redirect_to oauth.url_for_oauth_code(:permissions => :read_stream)
+      else
+        flash[:error] = 'We were unable to find a user by the name of "' + params[:id] + '"'
+        redirect_to facebook_users_path
+      end
     end
   end
 
@@ -47,9 +52,14 @@ class FacebookUsersController < ApplicationController
 
           #get posts and save them
         end
-      rescue Koala::Facebook::APIError
-        flash[:error] = 'We were unable to find a user by the name of "' + params[:facebook_user][:name] + '"'
-        redirect_to facebook_users_path
+      rescue Koala::Facebook::APIError => e
+        if e.message.include? "expired"
+          flash[:error] = 'Your session had expired. Please try your last search again now.'
+          redirect_to oauth.url_for_oauth_code(:permissions => :read_stream)
+        else
+          flash[:error] = 'We were unable to find a user by the name of "' + params[:facebook_user][:name] + '"'
+          redirect_to facebook_users_path
+        end
       end
     else
       flash[:error] = "You must provide a search term"

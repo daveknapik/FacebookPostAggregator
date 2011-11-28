@@ -1,5 +1,5 @@
 %ul
-  - @facebook_user.posts.each do |post|
+  - @facebook_user.posts.order("fb_created_at DESC").each do |post|
     %li
       = link_to post.title, "http://www.facebook.com/#{@facebook_user.username}/posts/#{post.fb_id}"
       = "#{pluralize(post.comment_count,'comment')}"
