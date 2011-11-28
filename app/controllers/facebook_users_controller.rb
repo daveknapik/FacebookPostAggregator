@@ -41,12 +41,4 @@ class FacebookUsersController < ApplicationController
       redirect_to facebook_users_path
     end
   end
-
-  def get_graph
-    if session[:access_token]
-      @graph ||= Koala::Facebook::API.new(session[:access_token])
-    else
-      redirect_to oauth.url_for_oauth_code(:permissions => :read_stream) 
-    end
-  end
 end

@@ -7,4 +7,10 @@ FactoryGirl.define do
     username "daveknapik"
     link "http://www.facebook.com/daveknapik"
   end
+
+  factory :facebook_user_with_posts, :parent => :facebook_user do
+    after_create do |facebook_user| 
+      3.times {Factory(:post, :facebook_user => facebook_user)}
+    end
+  end
 end
