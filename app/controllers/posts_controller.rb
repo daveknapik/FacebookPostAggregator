@@ -6,7 +6,7 @@ class PostsController < ApplicationController
     if @facebook_user.posts.count > 0
       #get posts since last import and update posts table with these posts
       #, :since => @facebook_user.posts.first.created_at.to_i
-      posts = []
+      posts = @graph.get_connections(@facebook_user.fb_id,'posts', :since => @facebook_user.posts.order("fb_created_at DESC").first.fb_created_at.to_i)
     else
       posts = @graph.get_connections(@facebook_user.fb_id,'posts')
     end 
