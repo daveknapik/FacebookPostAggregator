@@ -16,7 +16,7 @@ describe PostsController do
         @graph.stub(:get_connections).and_return(@posts)
         controller.stub(:get_graph).and_return(@graph)
         
-        @facebook_user = Factory.build(:facebook_user_with_posts)
+        @facebook_user = Factory.create(:facebook_user_with_posts)
         FacebookUser.stub(:find_by_username).and_return(@facebook_user)
       end
 

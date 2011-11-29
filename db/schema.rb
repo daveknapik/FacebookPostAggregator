@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111126221802) do
+ActiveRecord::Schema.define(:version => 20111129012747) do
 
   create_table "facebook_users", :force => true do |t|
     t.string   "name"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(:version => 20111126221802) do
 
   create_table "posts", :force => true do |t|
     t.datetime "fb_created_at"
-    t.string   "title"
+    t.text     "title"
     t.integer  "comment_count"
     t.integer  "facebook_user_id"
     t.datetime "created_at"
