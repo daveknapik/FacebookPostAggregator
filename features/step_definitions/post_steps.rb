@@ -3,7 +3,6 @@ Given /^there is a Facebook user with posts$/ do
 end
 
 When /^I go to that Facebook user's posts index page$/ do
-  FacebookUser.stub(:find_on_facebook).and_return(@facebook_user)
   visit facebook_user_posts_path(@facebook_user.username)
 end
 
