@@ -1,1 +1,3 @@
-= link_to @facebook_user.name, facebook_user_posts_path(@facebook_user.username)
+%ul.padded
+  %li.odd
+    = link_to @facebook_user.name, facebook_user_posts_path(@facebook_user.username)

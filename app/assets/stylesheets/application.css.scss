@@ -7,9 +7,11 @@
 */
 
 body {
-  font-family: Verdana, Helvetica, Arial;
-  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
 }
+
+h2 {font-family: Arial, Helvetica, sans-serif;}
 
 .clear {
   clear: both;
@@ -21,9 +23,10 @@ body {
   width: 75%;
   margin: 0 auto;
   background-color: white;
-  padding: 20px 40px;
+  padding: 0 40px 20px 40px;
   border: solid 1px black;
   margin-top: 20px;
+  min-width: 800px;
 }
 
 .notice, .error {
@@ -41,50 +44,32 @@ body {
   border: solid 1px #C66;
 }
 
-.fieldWithErrors {
-  display: inline;
+ul, li {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
 }
 
-#errorExplanation {
-  width: 400px;
-  border: 2px solid #CF0000;
-  padding: 0px;
-  padding-bottom: 12px;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
+ul.padded {
+  margin-top: 20px;
 }
 
-#errorExplanation h2 {
-  text-align: left;
-  font-weight: bold;
-  padding: 5px 5px 5px 15px;
-  font-size: 12px;
-  margin: 0;
-  background-color: #c00;
-  color: #fff;
+li {
+  min-height:50px;
+  height:auto !important;
+  height:50px;
+  line-height:50px;
+  padding-left: 10px;
+  a {
+    text-decoration: none;
+  }
 }
 
-#errorExplanation p {
-  color: #333;
-  margin-bottom: 0;
-  padding: 8px;
-}
-
-#errorExplanation ul {
-  margin: 2px 24px;
-}
-
-#errorExplanation ul li {
-  font-size: 12px;
-  list-style: disc;
-}
-
-
-table tr.even { background: #efefef; }
-table tr.odd { background: #a5a5a5; } 
+.even { background: #ffffff; }
+.odd { background: #D2FBCF; } 
 
 #toolbarcontainer {
-  background-color: black;
+  background-color: #C3FBCD;
   min-height:80px; height:auto !important; height:80px;
 }
 
@@ -97,7 +82,7 @@ table tr.odd { background: #a5a5a5; }
   display: none;
 }
 
-#search {
+#facebook_user_name {
   padding:0;
   margin: 0;
   height: 20px;

@@ -1,5 +1,6 @@
+%h2= "Recent posts from #{@facebook_user.username}"
 %ul
   - @facebook_user.posts.order("fb_created_at DESC").each do |post|
-    %li
-      = link_to post.title, "http://www.facebook.com/#{@facebook_user.username}/posts/#{post.fb_id}"
-      = "#{pluralize(post.comment_count,'comment')}"
+    %li{:class => cycle('odd','even')}
+      = link_to truncate(post.title, :length => 90), "http://www.facebook.com/#{@facebook_user.username}/posts/#{post.fb_id}"
+      = "(#{pluralize(post.comment_count,'comment')})"
