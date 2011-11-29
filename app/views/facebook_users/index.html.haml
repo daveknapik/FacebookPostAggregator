@@ -1,5 +1,5 @@
 #toolbarcontainer
   #toolbar
-    = form_tag '/facebook_users/search', :method => :get do
+    = form_tag '/facebook_users/search', :method => :get, :class => 'padded' do
       = label_tag "facebook_user[name]", "Search for a Facebook user or page by name:"
       = text_field_tag 'facebook_user[name]', nil, :size => 45
